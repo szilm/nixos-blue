@@ -5,21 +5,10 @@
 
     common
     laptop
+    power-hibernate # depends on swap at /dev/disk/by-label/swap
 
     gui
   ];
-
-  # deckard wants swap for hibernate
-  boot.resumeDevice = "/dev/disk/by-label/swap";
-  swapDevices = [ {
-    device = "/dev/disk/by-label/swap";
-  } ];
-
-  # deckard wants hibernate, never sleep as it corrupts memory
-  services.logind.settings.Login = {
-    HandleLidSwitch = "ignore";
-    HandlePowerKey = "hibernate";
-  };
 
   # firmware updater
   #services.fwupd.enable = true;
