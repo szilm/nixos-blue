@@ -26,6 +26,9 @@
       shellAliases = {
         # less = "nvimpager";
       };
+      interactiveShellInit = ''
+        fish_vi_key_bindings
+      '';
     };
 
     nushell = {
