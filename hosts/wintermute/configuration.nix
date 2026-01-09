@@ -5,6 +5,7 @@
 
     common
     laptop
+    power-sleep
 
     gui
   ];
@@ -14,11 +15,6 @@
       [
         "nouveau"
       ];
-
-  services.logind.settings.Login = {
-    HandleLidSwitch = "sleep";
-    HandlePowerKey = "sleep";
-  };
 
   # firmware updater
   #services.fwupd.enable = true;
