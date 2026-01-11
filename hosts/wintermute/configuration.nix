@@ -17,7 +17,7 @@
       ];
 
   # firmware updater
-  #services.fwupd.enable = true;
+  services.fwupd.enable = true;
 
   # emergency editor
   environment.systemPackages = with pkgs; [
