@@ -102,6 +102,27 @@
     };
   };
 
+  ## supporting fish funtions
+  programs.fish.functions = {
+    fuzzel-ask-p = {
+      argumentNames = "ask yes no";
+      body = ''
+            function _longest
+                math max\((string length $argv | string join ',')\)
+            end
+            set width (_longest $ask $yes $no)
+
+            set choice (string join0 $yes $no | fuzzel --dmenu0 --index --minimal-lines --width $width --prompt $ask)
+
+            if test $choice = 0
+                return 0
+            end
+
+            return 1
+          '';
+    };
+  };
+
   ## software
   programs = {
     kitty = {
