@@ -28,6 +28,8 @@
         "Menu" = "exec fuzzel";
         "${mod}+space" = "exec fuzzel";
 
+        "${mod}+Shift+e" = "exec fish -c 'fuzzel-ask-p \" really exit sway? \" \"  yes, exit sway  \" \"        no        \"' && swaymsg exit";
+
         "${mod}+comma" = "layout tabbed";
         "${mod}+period" = "layout splith";
         "${mod}+slash" = "layout splitv";
