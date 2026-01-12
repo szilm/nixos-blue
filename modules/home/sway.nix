@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, flake, config, lib, ... }:
 {
   wayland.windowManager.sway = {
     enable = true;
@@ -22,6 +22,11 @@
         };
         "type:touchpad" = {
           natural_scroll = "enabled";
+        };
+      };
+      output = {
+        "*" = {
+          bg = flake + /assets/wallpaper.jpg + " fill";
         };
       };
       keybindings = lib.mkOptionDefault {
@@ -147,5 +152,6 @@
   home.packages = with pkgs; [
     brightnessctl # media keys (brightness)
     shotman # screenshots
+    swaybg # wallpaper
   ];
 }
