@@ -584,7 +584,7 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (spacemacs/toggle-vi-tilde-fringe)
+  (spacemacs/toggle-vi-tilde-fringe-off)
   (spacemacs/set-leader-keys "hw" 'where-is)
 
   ;; NOTE cl-trial wants "sbcl --dynamic-space-size 4096"; consider setting it in .dir-locals.el
