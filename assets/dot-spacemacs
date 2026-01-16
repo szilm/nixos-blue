@@ -587,6 +587,8 @@ before packages are loaded."
   (spacemacs/toggle-vi-tilde-fringe-off)
   (spacemacs/set-leader-keys "hw" 'where-is)
 
+  (spacemacs/toggle-evil-safe-lisp-structural-editing-on)
+
   ;; NOTE cl-trial wants "sbcl --dynamic-space-size 4096"; consider setting it in .dir-locals.el
   (setq inferior-lisp-program "sbcl")
   ;; NOTE does slime-mode or somesuch exist for lisp buffers connected to slime?
