@@ -1,3 +1,8 @@
+### WINTERMUTE
+###
+### HP 15-bl108ca Spectre x360
+### S/N 5CD7460922
+
 { pkgs, inputs, ... }:
 {
   imports = with inputs.self.nixosModules; [
