@@ -34,17 +34,11 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layers
    '(shell-scripts
      toml
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
-     ;; `M-m f e R' (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
      (auto-completion :variables
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'cycle)
      ;; better-defaults
      emacs-lisp
-     git
      helm
      lsp
      markdown
@@ -62,7 +56,10 @@ This function should only modify configuration layer settings."
      ;; version-control
      common-lisp
      nixos
-     treemacs)
+     treemacs
+     (unicode-fonts :variables
+                    unicode-fonts-enable-ligatures t)
+     git)
 
 
    ;; List of additional packages that will be installed without being wrapped
@@ -260,7 +257,7 @@ It should only modify the values of Spacemacs settings."
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
    ;; NOTE we'd like "M-<space>" here, so we unbind the global
-   (define-key global-map (kbd "M-SPC") nil)
+   ;; (define-key global-map (kbd "M-SPC") nil)
    dotspacemacs-emacs-leader-key "M-SPC"
 
    ;; Major mode leader key is a shortcut key which is the equivalent of
@@ -586,7 +583,10 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (spacemacs/toggle-vi-tilde-fringe-off)
+  (spacemacs/toggle-truncate-lines-on)
+
   (spacemacs/set-leader-keys "hw" 'where-is)
+  (spacemacs/set-leader-keys "hK" 'describe-key)
 
   (spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hooks)
 
@@ -628,19 +628,19 @@ This function is called at the very end of Spacemacs initialization."
                 helm-purpose helm-swoop helm-xref hide-comnt highlight-indentation
                 highlight-numbers highlight-parentheses hl-todo holy-mode
                 hungry-delete hybrid-mode indent-guide info+ inspector ivy
-                link-hint lispy lispyville llama lorem-ipsum lsp-mode macrostep
-                magit-section multi-line multi-term multi-vterm nameless nix-mode
-                nixos-options open-junk-file org org-modern org-superstar origami
-                overseer package-lint page-break-lines paradox password-generator
-                pcre2el popwin pos-tip quickrun rainbow-delimiters reformatter
-                restart-emacs shell-pop shfmt slime space-doc spaceline
-                spacemacs-purpose-popwin spacemacs-whitespace-cleanup
-                string-edit-at-point string-inflection swiper symbol-overlay symon
-                term-cursor terminal-here toc-org toml-mode transient
-                treemacs-evil treemacs-icons-dired treemacs-persp
-                treemacs-projectile undo-fu-session uuidgen vi-tilde-fringe
-                volatile-highlights vterm vundo wgrep winum writeroom-mode
-                ws-butler yasnippet zoutline)))
+                ligature link-hint lispy lispyville llama lorem-ipsum lsp-mode
+                macrostep magit-section multi-line multi-term multi-vterm nameless
+                nix-mode nixos-options open-junk-file org org-modern org-superstar
+                origami overseer package-lint page-break-lines paradox
+                password-generator pcre2el popwin pos-tip quickrun
+                rainbow-delimiters reformatter restart-emacs shell-pop shfmt slime
+                space-doc spaceline spacemacs-purpose-popwin
+                spacemacs-whitespace-cleanup string-edit-at-point
+                string-inflection swiper symbol-overlay symon term-cursor
+                terminal-here toc-org toml-mode transient treemacs-evil
+                treemacs-icons-dired treemacs-persp treemacs-projectile
+                undo-fu-session uuidgen vi-tilde-fringe volatile-highlights vterm
+                vundo wgrep winum writeroom-mode ws-butler yasnippet zoutline)))
   (custom-set-faces
    ;; custom-set-faces was added by Custom.
    ;; If you edit it by hand, you could mess it up, so be careful.
