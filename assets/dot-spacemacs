@@ -34,6 +34,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layers
    '(shell-scripts
      toml
+     tidalcycles
      (auto-completion :variables
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'cycle)
@@ -256,8 +257,8 @@ It should only modify the values of Spacemacs settings."
 
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
-   ;; NOTE we'd like "M-<space>" here, so we unbind the global
-   ;; (define-key global-map (kbd "M-SPC") nil)
+   ;; NOTE we'd like "M-<space>" here, so we unbind the global later with:
+   ;;   (define-key global-map (kbd "M-SPC") nil)
    dotspacemacs-emacs-leader-key "M-SPC"
 
    ;; Major mode leader key is a shortcut key which is the equivalent of
@@ -582,16 +583,14 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (spacemacs/toggle-vi-tilde-fringe-off)
-  (spacemacs/toggle-truncate-lines-on)
-
+  ;; NOTE some of these settings are not being appled? esp leader key "hK"
+  (define-key global-map (kbd "M-SPC") nil) ;; stop this shadowing emacs-leader
   (spacemacs/set-leader-keys "hw" 'where-is)
   (spacemacs/set-leader-keys "hK" 'describe-key)
 
   (spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hooks)
 
   (setq inferior-lisp-program "sbcl")
-  ;; NOTE does slime-mode or somesuch exist for lisp buffers connected to slime?
   ;; FIXME SPC RET binding? currently binds to major mode leader ","
   ;; FIXME "*-last-*" awkward, can we has "*-current-*"?
   (spacemacs/set-leader-keys-for-major-mode 'emacs-lisp-mode "RET" 'eval-last-sexp)
@@ -610,6 +609,7 @@ This function is called at the very end of Spacemacs initialization."
    ;; If you edit it by hand, you could mess it up, so be careful.
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
+   '(global-vi-tilde-fringe-mode nil)
    '(package-selected-packages
      '(ace-link aggressive-indent all-the-icons auto-compile auto-highlight-symbol
                 avy-jump-helm-line centered-cursor-mode clean-aindent-mode
@@ -640,7 +640,8 @@ This function is called at the very end of Spacemacs initialization."
                 terminal-here toc-org toml-mode transient treemacs-evil
                 treemacs-icons-dired treemacs-persp treemacs-projectile
                 undo-fu-session uuidgen vi-tilde-fringe volatile-highlights vterm
-                vundo wgrep winum writeroom-mode ws-butler yasnippet zoutline)))
+                vundo wgrep winum writeroom-mode ws-butler yasnippet zoutline))
+   '(truncate-lines t))
   (custom-set-faces
    ;; custom-set-faces was added by Custom.
    ;; If you edit it by hand, you could mess it up, so be careful.
