@@ -1,3 +1,7 @@
+### DECKARD
+###
+### HP 227H4UP#ABA EliteBook 830 G7
+### S/N 5GC10383D0
 { pkgs, inputs, ... }:
 {
   imports = with inputs.self.nixosModules; [
