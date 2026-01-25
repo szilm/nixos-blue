@@ -26,7 +26,7 @@
 
   users.users.kitty = { # TODO DRY this?
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "adbusers" "wheel" ];
+    extraGroups = [ "networkmanager" "adbusers" "wheel" "audio" ];
   };
 
   # FIN
