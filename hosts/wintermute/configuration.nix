@@ -21,21 +21,6 @@
         "nouveau"
       ];
 
-  # firmware updater
-  services.fwupd.enable = true;
-
-  # emergency editor
-  environment.systemPackages = with pkgs; [
-    vim
-  ];
-
-  services.joycond.enable = true; # FIXME this doesn't seem to work (with bluetooth)
-
-  users.users.kitty = { # TODO DRY this?
-    isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
-
   # FIN
   system.stateVersion = "25.05"; # Did you read the comment?
 }

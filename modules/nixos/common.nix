@@ -11,4 +11,19 @@
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
+
+  # firmware updater
+  services.fwupd.enable = true;
+
+  # emergency editor
+  environment.systemPackages = with pkgs; [
+    vim
+  ];
+
+  services.joycond.enable = true; # FIXME this doesn't seem to work (with bluetooth)
+
+  users.users.kitty = {
+    isNormalUser = true;
+    extraGroups = [ "networkmanager" "adbusers" "wheel" "audio" ];
+  };
 }
