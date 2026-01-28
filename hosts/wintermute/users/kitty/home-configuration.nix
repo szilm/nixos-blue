@@ -4,6 +4,7 @@
     common
     git
 
+    emacs
     cli
     sway
   ];
