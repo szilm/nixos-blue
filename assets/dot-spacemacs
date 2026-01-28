@@ -35,9 +35,10 @@ This function should only modify configuration layer settings."
    '(shell-scripts
      toml
      tidalcycles
+     ;; TODO prefer ESC to C-g for cancel
      (auto-completion :variables
                       auto-completion-return-key-behavior 'complete
-                      auto-completion-tab-key-behavior 'cycle)
+                      auto-completion-tab-key-behavior 'complete)
      ;; better-defaults
      emacs-lisp
      helm
@@ -482,7 +483,7 @@ It should only modify the values of Spacemacs settings."
    ;; The backend used for undo/redo functionality. Possible values are
    ;; `undo-redo', `undo-fu' and `undo-tree' see also `evil-undo-system'.
    ;; Note that saved undo history does not get transferred when changing
-   ;; your undo system from or to undo-tree. (default `undo-redo')"
+   ;; your undo system from or to undo-tree. (default `undo-redo')
    dotspacemacs-undo-system 'undo-redo
 
    ;; Format specification for setting the frame title.
@@ -583,12 +584,15 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  ;; NOTE some of these settings are not being appled? esp leader key "hK"
   (define-key global-map (kbd "M-SPC") nil) ;; stop this shadowing emacs-leader
   (spacemacs/set-leader-keys "hw" 'where-is)
   (spacemacs/set-leader-keys "hK" 'describe-key)
 
+  ;; (define-key company-active-map [escape] 'company-abort) ; works, with a warning on load
+
   (spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hooks)
+  ;; TODO register in slime-repl
+  ;; TODO enable evil-cp text objects - how?
 
   (setq inferior-lisp-program "sbcl")
   ;; FIXME SPC RET binding? currently binds to major mode leader ","
@@ -609,6 +613,7 @@ This function is called at the very end of Spacemacs initialization."
    ;; If you edit it by hand, you could mess it up, so be careful.
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
+   '(evil-cleverparens-swap-move-by-word-and-symbol t)
    '(global-vi-tilde-fringe-mode nil)
    '(package-selected-packages
      '(ace-link aggressive-indent all-the-icons auto-compile auto-highlight-symbol
