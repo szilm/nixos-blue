@@ -599,6 +599,12 @@ before packages are loaded."
   ;; FIXME "*-last-*" awkward, can we has "*-current-*"?
   (spacemacs/set-leader-keys-for-major-mode 'emacs-lisp-mode "RET" 'eval-last-sexp)
   (spacemacs/set-leader-keys-for-major-mode 'lisp-mode "RET" 'slime-eval-last-expression)
+
+  ;; additional ox-* packages for fancy latex exports from org-mode
+  (use-package ox-extra
+    :after ox
+    :config (ox-extras-activate '(latex-header-blocks ignore-headlines))
+    )
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
