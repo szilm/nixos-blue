@@ -13,6 +13,8 @@
     power-hibernate # depends on swap at /dev/disk/by-label/swap
 
     gui
+
+    steam
   ];
 
   # FIN
