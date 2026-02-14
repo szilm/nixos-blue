@@ -1,0 +1,13 @@
+#+title: NixOS Configurations
+
+My nixos configurations for all my stuff :3
+
+Could be DRYer. Home manager modules for local configs. Can Spacemacs ever be made "clean"?
+
+
+* TODO xkb options
+** sticky win key
+* TODO disk setup script
+** sgdisk partitions
+** lvm pool, group, volume
+** filesystems
