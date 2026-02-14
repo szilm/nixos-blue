@@ -25,5 +25,9 @@
   users.users.kitty = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "adbusers" "wheel" "audio" ];
+
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGFERq2UBqlVXV5MniABHPFzV3oEMb75g9z6UgDXnCjd kitty@deckard"
+    ];
   };
 }
