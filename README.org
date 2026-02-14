@@ -9,5 +9,23 @@ Could be DRYer. Home manager modules for local configs. Can Spacemacs ever be ma
 ** sticky win key
 * TODO disk setup script
 ** sgdisk partitions
+#+begin_src shell
+  sudo sgdisk --zap \
+       --new 1:0:+1G --change-name 1:"EFI System" --typecode 1:ef00 \
+       --largest-new 2 --change-name 2:"LVM PV Primary" --typecode 2:8300 \
+       --print \
+       /dev/nvme0n1
+#+end_src
 ** lvm pool, group, volume
+#+begin_src shell
+  sudo pvcreate /dev/nvme0n1p2
+  sudo vgcreate vg-primary /dev/nvme0n1p2
+  sudo lvcreate --size 200G --name nixos-root vg-primary
+#+end_src
+
 ** filesystems
+#+begin_src shell
+  sudo mkfs.fat /dev/nvme0n1p1 -F 32 -n EFI-System
+  sudo mkfs.ext4 /dev/mapper/vg--primary-nixos--root
+#+end_src
+
