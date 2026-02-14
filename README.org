@@ -8,24 +8,53 @@ Could be DRYer. Home manager modules for local configs. Can Spacemacs ever be ma
 * TODO xkb options
 ** sticky win key
 * TODO disk setup script
+** quality of life
+#+begin_src shell
+  # your keyboard here
+  sudo loadkeys dvorak
+  # big terminal font
+  sudo setfont ter-v32n
+
+  # enable ssh access
+  sudo passwd root # TODO ssh authorized_keys in nix config
+#+end_src
 ** sgdisk partitions
 #+begin_src shell
-  sudo sgdisk --zap \
+  sgdisk --zap \
        --new 1:0:+1G --change-name 1:"EFI System" --typecode 1:ef00 \
        --largest-new 2 --change-name 2:"LVM PV Primary" --typecode 2:8300 \
        --print \
        /dev/nvme0n1
+
+  # kernel requires a reboot here
+  reboot
 #+end_src
 ** lvm pool, group, volume
 #+begin_src shell
-  sudo pvcreate /dev/nvme0n1p2
-  sudo vgcreate vg-primary /dev/nvme0n1p2
-  sudo lvcreate --size 200G --name nixos-root vg-primary
+  pvcreate /dev/nvme0n1p2
+  vgcreate vg-primary /dev/nvme0n1p2
+  lvcreate --size 200G --name nixos-root vg-primary
 #+end_src
-
 ** filesystems
 #+begin_src shell
-  sudo mkfs.fat /dev/nvme0n1p1 -F 32 -n EFI-System
-  sudo mkfs.ext4 /dev/mapper/vg--primary-nixos--root
+  mkfs.fat /dev/nvme0n1p1 -F 32 -n EFI-System
+  mkfs.ext4 /dev/mapper/vg--primary-nixos--root -L nixos-root
 #+end_src
+** nixos install proper
+#+begin_src shell
+  # mount targets
+  mount /dev/disk/by-label/nixos-root /mnt
+
+  mkdir -p /mnt/boot
+  mount -o umask=077 /dev/disk/by-label/EFI-System /mnt/boot
+
+  # nixos
+  nixos-generate-config --flake --root /mnt
+  nixos-install --flake /root/nixos-blue#<hostname>
+  nixos-enter --root /mnt -c 'passwd kitty' # TODO hashes in nix config
+
+  # finally
+  reboot
+#+end_src
+
 
