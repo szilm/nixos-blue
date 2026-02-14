@@ -16,7 +16,7 @@ Could be DRYer. Home manager modules for local configs. Can Spacemacs ever be ma
   sudo setfont ter-v32n
 
   # enable ssh access
-  sudo passwd root # TODO ssh authorized_keys in nix config
+  sudo passwd root
 #+end_src
 ** sgdisk partitions
 #+begin_src shell
@@ -56,5 +56,3 @@ Could be DRYer. Home manager modules for local configs. Can Spacemacs ever be ma
   # finally
   reboot
 #+end_src
-
-
