@@ -18,7 +18,11 @@
       ];
       input = {
         "type:keyboard" = {
+          xkb_layout = "us";
           xkb_options = "caps:escape";
+        };
+        "1046:58148:ZHHTech_Varmilo_Mechanical_Keyboard" = {
+          xkb_variant = "dvorak";
         };
         "type:touchpad" = {
           natural_scroll = "enabled";
