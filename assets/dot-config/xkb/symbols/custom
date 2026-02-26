@@ -1,0 +1,11 @@
+// sticky win key
+partial alphanumeric_keys
+xkb_symbols "sticky_win" {
+  key <LWIN> {
+    symbols = [ ISO_Level3_Shift ],
+    actions = [ LatchMods(Mods=Super,clearLocks) ]
+  };
+};
+
+xkb_symbols "varmilo" {
+};

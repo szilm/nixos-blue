@@ -1,0 +1,5 @@
+:PROPERTIES:
+:CATEGORY: blue
+:END:
+
+* TODO Home Manager module for xkb configs in .config/xkb

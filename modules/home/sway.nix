@@ -19,10 +19,11 @@
       input = {
         "type:keyboard" = {
           xkb_layout = "us";
-          xkb_options = "caps:escape";
+          xkb_options = "caps:escape,custom:sticky_win";
         };
         "1046:58148:ZHHTech_Varmilo_Mechanical_Keyboard" = {
           xkb_variant = "dvorak";
+          xkb_options = "custom:varmilo";
         };
         "type:touchpad" = {
           natural_scroll = "enabled";

@@ -1,0 +1,5 @@
+// Varmilo quirks
+xkb_keycodes "varmilo" {
+  <LCTL> = 133;
+  <LWIN> = 37;
+};

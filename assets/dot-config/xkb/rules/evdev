@@ -1,0 +1,9 @@
+// Mandatory to extend the system rules
+! include %S/evdev
+
+! option = symbols
+ custom:sticky_win = +custom(sticky_win)
+ custom:varmilo = +custom(varmilo) // Varmilo quirks
+
+! option = keycodes
+ custom:varmilo = +custom(varmilo) // Varmilo quirks
