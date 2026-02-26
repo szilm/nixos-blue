@@ -23,7 +23,7 @@
         };
         "1046:58148:ZHHTech_Varmilo_Mechanical_Keyboard" = {
           xkb_variant = "dvorak";
-          xkb_options = "custom:varmilo";
+          xkb_options = "caps:escape,custom:sticky_win,custom:varmilo";
         };
         "type:touchpad" = {
           natural_scroll = "enabled";
