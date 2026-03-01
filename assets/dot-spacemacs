@@ -50,7 +50,7 @@ This function should only modify configuration layer settings."
           org-indent-mode t
           org-want-todo-bindings t
 
-          org-project-capture-projects-file "todo.org"
+          org-project-capture-projects-file "README.org"
 
           org-enable-org-journal-support t
           org-journal-dir "~/org/journal/"
