@@ -49,7 +49,16 @@ This function should only modify configuration layer settings."
           org-startup-indented t
           org-indent-mode t
           org-want-todo-bindings t
-          org-project-capture-projects-file "todo.org")
+
+          org-project-capture-projects-file "todo.org"
+
+          org-enable-org-journal-support t
+          org-journal-dir "~/org/journal/"
+          org-journal-file-format "%Y-%m-%d"
+          org-journal-date-prefix "#+TITLE: "
+          org-journal-date-format "%A, %B %d %Y"
+          org-journal-time-prefix "* "
+          org-journal-time-format "")
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -641,9 +650,9 @@ This function is called at the very end of Spacemacs initialization."
                 hungry-delete hybrid-mode indent-guide info+ inspector ivy
                 ligature link-hint lispy lispyville llama lorem-ipsum lsp-mode
                 macrostep magit-section multi-line multi-term multi-vterm nameless
-                nix-mode nixos-options open-junk-file org org-modern org-superstar
-                origami overseer package-lint page-break-lines paradox
-                password-generator pcre2el popwin pos-tip quickrun
+                nix-mode nixos-options open-junk-file org org-journal org-modern
+                org-superstar origami overseer package-lint page-break-lines
+                paradox password-generator pcre2el popwin pos-tip quickrun
                 rainbow-delimiters reformatter restart-emacs shell-pop shfmt slime
                 space-doc spaceline spacemacs-purpose-popwin
                 spacemacs-whitespace-cleanup string-edit-at-point
