@@ -5,9 +5,7 @@ My nixos configurations for all my stuff :3
 Could be DRYer. Home manager modules for local configs. Can Spacemacs ever be made "clean"?
 
 
-* TODO xkb options
-** sticky win key
-* TODO disk setup script
+* TODO setup script
 ** quality of life
 #+begin_src shell
   # your keyboard here
@@ -56,3 +54,6 @@ Could be DRYer. Home manager modules for local configs. Can Spacemacs ever be ma
   # finally
   reboot
 #+end_src
+** TODO client-side setup                                            :dirty:
+
+* TODO Home Manager module for xkb configs in .config/xkb
