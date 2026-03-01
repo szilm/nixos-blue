@@ -597,7 +597,7 @@ before packages are loaded."
   (spacemacs/set-leader-keys "hw" 'where-is)
   (spacemacs/set-leader-keys "hK" 'describe-key)
 
-  ;; (define-key company-active-map [escape] 'company-abort) ; works, with a warning on load
+  (with-eval-after-load 'company (define-key company-active-map [escape] 'company-abort))
 
   (spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hooks)
   ;; TODO register in slime-repl
@@ -615,6 +615,7 @@ before packages are loaded."
     :config (ox-extras-activate '(latex-header-blocks ignore-headlines))
     )
   )
+;; dotspacemacs/user-config
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
