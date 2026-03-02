@@ -5,6 +5,10 @@ xkb_symbols "sticky_win" {
     symbols = [ ISO_Level3_Shift ],
     actions = [ LatchMods(Mods=Super,clearLocks) ]
   };
+  key <RWIN> {
+    symbols = [ ISO_Level3_Shift ],
+    actions = [ LatchMods(Mods=Super,clearLocks) ]
+  };
 };
 
 xkb_symbols "varmilo" {

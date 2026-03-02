@@ -1,5 +1,30 @@
+// defaults:
+// [LCTRL 37] [LWIN 133] [LALT 64] // [RALT 108] [RWIN 134] [RCTRL 105]
+// [ALT 204] [META 205] (virtual)
+
+// Swap WINs and ALTs
+xkb_keycodes "swap_win_alt" {
+  <LALT> = 133;
+  <LWIN> = 64;
+
+  <RALT> = 134;
+  <RWIN> = 108;
+
+  <ALT> = 205;
+  <META> = 204;
+};
+
 // Varmilo quirks
+// varmilo has LCTL and LWIN physically out of place plus hardware fn key on RWIN
+// [133] [37] [64] // [108] [-fn-] [105]
 xkb_keycodes "varmilo" {
-  <LCTL> = 133;
-  <LWIN> = 37;
+  <LCTL> = 133; // fixed
+  <LALT> = 37; // swapped
+  <LWIN> = 64; // fixed and swapped
+
+  <RALT> = 134; // no physical key
+  <RWIN> = 108;
+
+  <ALT> = 205;
+  <META> = 204;
 };

@@ -6,4 +6,5 @@
  custom:varmilo = +custom(varmilo) // Varmilo quirks
 
 ! option = keycodes
+ custom:swap_win_alt = +custom(swap_win_alt)
  custom:varmilo = +custom(varmilo) // Varmilo quirks
