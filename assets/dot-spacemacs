@@ -59,6 +59,8 @@ This function should only modify configuration layer settings."
           org-journal-date-format "%A, %B %d %Y"
           org-journal-time-prefix "* "
           org-journal-time-format "")
+     (finance :variables
+              hledger-journal-file "~/org/kitty.journal")
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -640,22 +642,23 @@ This function is called at the very end of Spacemacs initialization."
                 eshell-prompt-extras eshell-z eval-sexp-fu evil-anzu evil-args
                 evil-cleverparens evil-collection evil-easymotion evil-escape
                 evil-evilified-state evil-exchange evil-goggles evil-iedit-state
-                evil-indent-plus evil-lion evil-lisp-state evil-matchit evil-mc
-                evil-nerd-commenter evil-numbers evil-surround evil-textobj-line
-                evil-tutor evil-unimpaired evil-visual-mark-mode evil-visualstar
-                expand-region eyebrowse fancy-battery flycheck-elsa golden-ratio
+                evil-indent-plus evil-ledger evil-lion evil-lisp-state
+                evil-matchit evil-mc evil-nerd-commenter evil-numbers
+                evil-surround evil-textobj-line evil-tutor evil-unimpaired
+                evil-visual-mark-mode evil-visualstar expand-region eyebrowse
+                fancy-battery flycheck-elsa flycheck-ledger golden-ratio
                 google-translate helm-ag helm-comint helm-descbinds helm-make
                 helm-mode-manager helm-nixos-options helm-org helm-projectile
                 helm-purpose helm-swoop helm-xref hide-comnt highlight-indentation
-                highlight-numbers highlight-parentheses hl-todo holy-mode
-                hungry-delete hybrid-mode indent-guide info+ inspector ivy
-                ligature link-hint lispy lispyville llama lorem-ipsum lsp-mode
-                macrostep magit-section multi-line multi-term multi-vterm nameless
-                nix-mode nixos-options open-junk-file org org-journal org-modern
-                org-superstar origami overseer package-lint page-break-lines
-                paradox password-generator pcre2el popwin pos-tip quickrun
-                rainbow-delimiters reformatter restart-emacs shell-pop shfmt slime
-                space-doc spaceline spacemacs-purpose-popwin
+                highlight-numbers highlight-parentheses hl-todo hledger-mode
+                holy-mode hungry-delete hybrid-mode indent-guide info+ inspector
+                ivy ledger-mode ligature link-hint lispy lispyville llama
+                lorem-ipsum lsp-mode macrostep magit-section multi-line multi-term
+                multi-vterm nameless nix-mode nixos-options open-junk-file org
+                org-journal org-modern org-superstar origami overseer package-lint
+                page-break-lines paradox password-generator pcre2el popwin pos-tip
+                quickrun rainbow-delimiters reformatter restart-emacs shell-pop
+                shfmt slime space-doc spaceline spacemacs-purpose-popwin
                 spacemacs-whitespace-cleanup string-edit-at-point
                 string-inflection swiper symbol-overlay symon term-cursor
                 terminal-here toc-org toml-mode transient treemacs-evil

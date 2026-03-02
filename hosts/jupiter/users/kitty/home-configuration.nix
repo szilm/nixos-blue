@@ -9,7 +9,7 @@
     sway
   ];
 
-  home.packages = [ pkgs.cowsay ];
+  home.packages = with pkgs; [ cowsay hledger ];
   # Defined by /modules/home/me.nix
   # And used all around in /modules/home/*
   me = {
