@@ -35,7 +35,6 @@ This function should only modify configuration layer settings."
    '(shell-scripts
      toml
      tidalcycles
-     ;; TODO prefer ESC to C-g for cancel
      (auto-completion :variables
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'complete)
@@ -605,7 +604,6 @@ before packages are loaded."
 
   (spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hooks)
   ;; TODO register in slime-repl
-  ;; TODO enable evil-cp text objects - how?
 
   (setq inferior-lisp-program "sbcl")
   ;; FIXME SPC RET binding? currently binds to major mode leader ","
