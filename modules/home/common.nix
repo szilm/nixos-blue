@@ -2,7 +2,7 @@
 
 { pkgs, inputs, osConfig, ... }:
 {
-  imports = with inputs.self.homeModules; [ me git nix-index ];
+  imports = with inputs.self.homeModules; [ me git nix-index xkb ];
   # TODO this is from template, enable or delete?
   # only available on linux, disabled on macos
   #services.ssh-agent.enable = pkgs.stdenv.isLinux;
