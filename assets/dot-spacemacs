@@ -62,8 +62,10 @@ This function should only modify configuration layer settings."
      (finance :variables
               hledger-journal-file "~/org/kitty.journal")
      (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
+            shell-default-position 'right
+            shell-default-width 40
+            shell-default-shell 'eshell
+            shell-enable-smart-eshell t)
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
