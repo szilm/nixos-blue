@@ -596,11 +596,15 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  ;;; global stuff
   (define-key global-map (kbd "M-SPC") nil) ;; stop this shadowing emacs-leader
   (spacemacs/set-leader-keys "hw" 'where-is)
   (spacemacs/set-leader-keys "hK" 'describe-key)
 
+  ;;; escape autocomplete
   (with-eval-after-load 'company (define-key company-active-map [escape] 'company-abort))
+
+  ;;; lispy stuff
 
   (spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hooks)
   ;; TODO register in slime-repl
@@ -610,6 +614,28 @@ before packages are loaded."
   ;; FIXME "*-last-*" awkward, can we has "*-current-*"?
   (spacemacs/set-leader-keys-for-major-mode 'emacs-lisp-mode "RET" 'eval-last-sexp)
   (spacemacs/set-leader-keys-for-major-mode 'lisp-mode "RET" 'slime-eval-last-expression)
+
+  ;;; org-mode stuff
+
+  ;; today's journal with org-journal-today <SPC a o j j>
+  (defun org-journal-today ()
+    "Creates or loads today's journal like (org-journal-new-entry) without adding a subtree.
+  Loads today's journal like (org-journal-open-current-journal) but creating it if it doesn't exist."
+    (interactive)
+    (org-journal-new-entry t))
+
+  (spacemacs/set-leader-keys "aojj" 'org-journal-today)
+
+  ;; yesterday's journal with org-journal-yesterday <SPC a o j y>
+  (defun org-journal-yesterday ()
+    "Creates or loads yesterday's journal"
+    (interactive)
+    (let ((yesterday (decode-time)))
+      (setf (decoded-time-day yesterday)
+            (- (decoded-time-day yesterday) 1))
+      (org-journal-new-entry t (encode-time yesterday))))
+
+  (spacemacs/set-leader-keys "aojy" 'org-journal-yesterday)
 
   ;; additional ox-* packages for fancy latex exports from org-mode
   (use-package ox-extra
