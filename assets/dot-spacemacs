@@ -616,7 +616,13 @@ before packages are loaded."
     :after ox
     :config (ox-extras-activate '(latex-header-blocks ignore-headlines))
     )
+
+  ;;; miscellany
+  (with-eval-after-load 'hledger-mode (setq hledger-currency-string "$"))
+
+  ;;; end
   )
+
 ;; dotspacemacs/user-config
 
 ;; Do not write anything past this comment. This is where Emacs will
