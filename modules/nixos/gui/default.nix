@@ -7,5 +7,6 @@
     ./greeter.nix
 
     ./browser.nix
+    ./kde_connect.nix
   ];
 }
