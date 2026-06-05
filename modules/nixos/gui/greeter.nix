@@ -4,13 +4,10 @@
   services.greetd = {
     enable = true;
     settings = {
-      default_session.command = ''
-        ${pkgs.tuigreet}/bin/tuigreet \
-          --time \
-          --asterisks \
-          --user-menu \
-          --cmd ${pkgs.sway}/bin/sway
-      '';
+      default_session = {
+        # avoiding multiline string here - greetd parses simple ini format now, NOT toml!
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --asterisks --user-menu --cmd ${pkgs.sway}/bin/sway";
+      };
     };
   };
 
