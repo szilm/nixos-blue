@@ -33,6 +33,7 @@
 
     nushell = {
       enable = true;
+      loadSessionVariables = true;
     };
 
     # Type `z <pat>` to cd to some directory
